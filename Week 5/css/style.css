@@ -1,0 +1,664 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+nav ul a {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+nav li {
+    padding: .6250rem 0 .6250rem 1.875rem;
+}
+
+nav li a {
+    position: relative;
+    display: inline-block;
+    width: min-content;
+}
+
+nav li a::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 3px;
+    bottom: 3px;
+    left: .5rem;
+    right: 0.5rem;
+    scale: 0;
+    transform-origin: bottom left;
+    transition: all .5s;
+}
+
+nav li a:hover::before {
+    scale: 1;
+    right: .9rem;
+}
+
+/* Scrolling Adjustments */
+section#about,
+section#blog,
+section#contact,
+section#portfolio,
+section#counter,
+section#services {
+    scroll-margin-top: 4.7rem;
+    scroll-snap-align: start;
+}
+
+:has(#home:target) li a[href="#home"]::before {
+    scale: 1;
+    right: .9rem;
+}
+
+:has(#about:target) li a[href="#about"]::before {
+    scale: 1;
+    right: .9rem;
+}
+
+:has(#contact:target) li a[href="#contact"]::before {
+    scale: 1;
+    right: .9rem;
+}
+
+:has(#portfolio:target) li a[href="#portfolio"]::before {
+    scale: 1;
+    right: .9rem;
+}
+
+:has(#services:target) li a[href="#services"]::before {
+    scale: 1;
+    right: .9rem;
+}
+
+
+
+/* Hero Edits */
+section#home .layer {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+section#home .layer h1 {
+    font-size: 4rem;
+}
+
+section#home .layer h2 {
+    font-size: 3rem;
+    position: relative;
+}
+
+section#home .layer h2::after {
+    content: " |";
+    animation: typewriter;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes typewriter {
+    0% {
+        content: " |";
+    }
+
+    1% {
+        content: " D|";
+    }
+
+    2% {
+        content: " De|";
+    }
+
+    3% {
+        content: " Dev|";
+    }
+
+    4% {
+        content: " Deve|";
+    }
+
+    5% {
+        content: " Devel|";
+    }
+
+    6% {
+        content: " Develo|";
+    }
+
+    7% {
+        content: " Develop|";
+    }
+
+    8% {
+        content: " Develope|";
+    }
+
+    9% {
+        content: " Developer|";
+    }
+
+    10% {
+        content: " Develope|";
+    }
+
+    11% {
+        content: " Develo|";
+    }
+
+    12% {
+        content: " Devel|";
+    }
+
+    12% {
+        content: " Deve|";
+    }
+
+    14% {
+        content: " Dev|";
+    }
+
+    15% {
+        content: " De|";
+    }
+
+    16% {
+        content: " D|";
+    }
+
+    17% {
+        content: " |";
+    }
+
+    18% {
+        content: " F|";
+    }
+
+    19% {
+        content: " Fr|";
+    }
+
+    20% {
+        content: " Fre|";
+    }
+
+    21% {
+        content: " Free|";
+    }
+
+    22% {
+        content: " Freel|";
+    }
+
+    23% {
+        content: " Freela|";
+    }
+
+    24% {
+        content: " Freelan|";
+    }
+
+    25% {
+        content: " Freelanc|";
+    }
+
+    26% {
+        content: " Freelance|";
+    }
+
+    27% {
+        content: " Freelancer|";
+    }
+
+    28% {
+        content: " Freelance|";
+    }
+
+    29% {
+        content: " Freelanc|";
+    }
+
+    30% {
+        content: " Freelan|";
+    }
+
+    31% {
+        content: " Freela|";
+    }
+
+    32% {
+        content: " Freel|";
+    }
+
+    33% {
+        content: " Free|";
+    }
+
+    34% {
+        content: " Fre|";
+    }
+
+    35% {
+        content: " Fr|";
+    }
+
+    36% {
+        content: " F|";
+    }
+
+    37% {
+        content: " |";
+    }
+
+    38% {
+        content: " P|";
+    }
+
+    39% {
+        content: " Ph|";
+    }
+
+    40% {
+        content: " Pho|";
+    }
+
+    41% {
+        content: " Phot|";
+    }
+
+    42% {
+        content: " Photo|";
+    }
+
+    43% {
+        content: " Photog|";
+    }
+
+    44% {
+        content: " Photogr|";
+    }
+
+    45% {
+        content: " Photogra|";
+    }
+
+    46% {
+        content: " Photograp|";
+    }
+
+    47% {
+        content: " Photograph|";
+    }
+
+    48% {
+        content: " Photography|";
+    }
+
+    49% {
+        content: " Photograph|";
+    }
+
+    50% {
+        content: " Photograp|";
+    }
+
+    51% {
+        content: " Photogra|";
+    }
+
+    52% {
+        content: " Photogr|";
+    }
+
+    53% {
+        content: " Photog|";
+    }
+
+    54% {
+        content: " Photo|";
+    }
+
+    55% {
+        content: " Phot|";
+    }
+
+    56% {
+        content: " Pho|";
+    }
+
+    57% {
+        content: " Ph|";
+    }
+
+    58% {
+        content: " P|";
+    }
+
+    59% {
+        content: " D|";
+    }
+
+    61% {
+        content: " De|";
+    }
+
+    62% {
+        content: " Des|";
+    }
+
+    63% {
+        content: " Desi|";
+    }
+
+    64% {
+        content: " Desig|";
+    }
+
+    65% {
+        content: " Design|";
+    }
+
+    66% {
+        content: " Designe|";
+    }
+
+    67% {
+        content: " Designer|";
+    }
+
+    68% {
+        content: " Designe|";
+    }
+
+    69% {
+        content: " Design|";
+    }
+
+    70% {
+        content: " Desig|";
+    }
+
+    71% {
+        content: " Desi|";
+    }
+
+    72% {
+        content: " Des|";
+    }
+
+    73% {
+        content: " De|";
+    }
+
+    74% {
+        content: " D|";
+    }
+
+    75% {
+        content: " |";
+    }
+
+    76% {
+        content: " F|";
+    }
+
+    77% {
+        content: " Fr|";
+    }
+
+    78% {
+        content: " Fre|";
+    }
+
+    79% {
+        content: " Free|";
+    }
+
+    80% {
+        content: " Freel|";
+    }
+
+    81% {
+        content: " Freela|";
+    }
+
+    82% {
+        content: " Freelan|";
+    }
+
+    83% {
+        content: " Freelanc|";
+    }
+
+    84% {
+        content: " Freelance|";
+    }
+
+    85% {
+        content: " Freelancer|";
+    }
+
+    86% {
+        content: " Freelance|";
+    }
+
+    87% {
+        content: " Freelanc|";
+    }
+
+    88% {
+        content: " Freelan|";
+    }
+
+    89% {
+        content: " Freela|";
+    }
+
+    90% {
+        content: " Freel|";
+    }
+
+    91% {
+        content: " Free|";
+    }
+
+    92% {
+        content: " Fre|";
+    }
+
+    93% {
+        content: " Fr|";
+    }
+
+    94% {
+        content: " F|";
+    }
+
+    100% {
+        content: " |";
+    }
+}
+
+section .underlineTitle {
+    position: relative;
+    display: inline-block;
+}
+
+section .underlineTitle::after {
+    content: "";
+    position: absolute;
+    background-color: var(--bs-primary);
+    bottom: -5px;
+    left: 0;
+    height: 3px;
+    width: 75%;
+}
+
+/* Services Section */
+#divider {
+    border: none;
+    width: 2.5rem;
+    margin: 5rem auto;
+    margin-top: 1rem;
+    height: 5px;
+    background-color: var(--bs-primary);
+
+}
+
+section#services .card i {
+    font-size: 3rem;
+    width: 8rem;
+    height: 8rem;
+    position: relative;
+    padding: 2.5rem;
+    transition: all .5s;
+    border-radius: 50%;
+
+}
+
+section#services .card i::after {
+    content: "";
+    position: absolute;
+    border: 8px solid var(--bs-primary);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 50%;
+}
+
+section#services .card:hover i::after {
+    border: 8px solid var(--bs-primary-border-subtle);
+}
+
+section#services .card:hover i {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+/* Counter Section */
+section#counter {
+    height: 50vh;
+}
+
+section#counter .layer {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+section#counter .layer h1 {
+    font-size: 4rem;
+}
+
+section#counter .counterIcon i {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    width: 3rem;
+    height: 3rem;
+    padding: 2rem;
+    border: 6px solid var(--bs-primary-border-subtle);
+}
+
+/* Portfolio Edits */
+section#portfolio .cardImg {
+    overflow: hidden;
+}
+
+
+section#portfolio .card img {
+    transition: all 1s;
+
+}
+
+section#portfolio .card:hover img {
+    transform: scale(1.3);
+}
+
+section#portfolio div.card-body {
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+
+/* Testimonial Section */
+#testimonial {
+    background-attachment: fixed;
+    background-color: #0d6efd;
+    background-blend-mode: soft-light;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Blog Edits */
+section#blog .middleBtn {
+    position: absolute;
+    display: inline-block;
+    padding: .3125rem 2rem;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+section#blog .author img {
+    width: 2rem;
+}
+
+section#blog span.authorName:hover {
+    color: var(--bs-primary);
+}
+
+/* Contact Edits */
+#contact {
+    background-attachment: fixed;
+    background-color: #0d6efd;
+    background-blend-mode: soft-light;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+
+ul.contactData,
+ul.socialMenu {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+section#contact li a {
+    text-decoration: none;
+}
+
+section#contact i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--bs-primary);
+    padding: .5rem;
+    font-size: 1.25rem;
+    margin: auto 1rem 0 0;
+    border-radius: 50%;
+    color: var(--bs-dark);
+    transition: all 0.5s;
+}
+
+section#contact i:hover {
+    color: var(--bs-light);
+    background-color: var(--bs-primary);
+    border: 3px solid var(--bs-primary-border-subtle);
+}
+
+/* Footer Edits */
+footer {
+    background-color: #0062d3;
+}
