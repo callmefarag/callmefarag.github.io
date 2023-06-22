@@ -15,8 +15,6 @@ nav li {
 
 nav li a {
     position: relative;
-    display: inline-block;
-    width: min-content;
 }
 
 nav li a::before {
@@ -565,6 +563,7 @@ section#counter .counterIcon i {
 /* Portfolio Edits */
 section#portfolio .cardImg {
     overflow: hidden;
+    width: 100%;
 }
 
 
