@@ -26,13 +26,41 @@ nav li a::before {
     left: .5rem;
     right: 0.5rem;
     scale: 0;
+    -webkit-transform-origin: bottom left;
+    -ms-transform-origin: bottom left;
     transform-origin: bottom left;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
     transition: all .5s;
 }
 
 nav li a:hover::before {
     scale: 1;
     right: .9rem;
+}
+
+@media screen and (max-width: 992px) {
+
+    nav li a::before {
+        content: "";
+        position: absolute;
+        background-color: white;
+        height: 3px;
+        bottom: 3px;
+        left: 0;
+        width: 10%;
+        scale: 0;
+        -webkit-transform-origin: bottom left;
+        -ms-transform-origin: bottom left;
+        transform-origin: bottom left;
+        -webkit-transition: all .5s;
+        -o-transition: all .5s;
+        transition: all .5s;
+    }
+
+    nav li a:hover::before {
+        scale: 1;
+    }
 }
 
 /* Scrolling Adjustments */
@@ -89,9 +117,395 @@ section#home .layer h2 {
 
 section#home .layer h2::after {
     content: " |";
+    -webkit-animation: typewriter;
     animation: typewriter;
+    -webkit-animation-duration: 15s;
     animation-duration: 15s;
+    -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
+}
+
+
+@-webkit-keyframes typewriter {
+    0% {
+        content: " |";
+    }
+
+    1% {
+        content: " D|";
+    }
+
+    2% {
+        content: " De|";
+    }
+
+    3% {
+        content: " Dev|";
+    }
+
+    4% {
+        content: " Deve|";
+    }
+
+    5% {
+        content: " Devel|";
+    }
+
+    6% {
+        content: " Develo|";
+    }
+
+    7% {
+        content: " Develop|";
+    }
+
+    8% {
+        content: " Develope|";
+    }
+
+    9% {
+        content: " Developer|";
+    }
+
+    10% {
+        content: " Develope|";
+    }
+
+    11% {
+        content: " Develo|";
+    }
+
+    12% {
+        content: " Devel|";
+    }
+
+    12% {
+        content: " Deve|";
+    }
+
+    14% {
+        content: " Dev|";
+    }
+
+    15% {
+        content: " De|";
+    }
+
+    16% {
+        content: " D|";
+    }
+
+    17% {
+        content: " |";
+    }
+
+    18% {
+        content: " F|";
+    }
+
+    19% {
+        content: " Fr|";
+    }
+
+    20% {
+        content: " Fre|";
+    }
+
+    21% {
+        content: " Free|";
+    }
+
+    22% {
+        content: " Freel|";
+    }
+
+    23% {
+        content: " Freela|";
+    }
+
+    24% {
+        content: " Freelan|";
+    }
+
+    25% {
+        content: " Freelanc|";
+    }
+
+    26% {
+        content: " Freelance|";
+    }
+
+    27% {
+        content: " Freelancer|";
+    }
+
+    28% {
+        content: " Freelance|";
+    }
+
+    29% {
+        content: " Freelanc|";
+    }
+
+    30% {
+        content: " Freelan|";
+    }
+
+    31% {
+        content: " Freela|";
+    }
+
+    32% {
+        content: " Freel|";
+    }
+
+    33% {
+        content: " Free|";
+    }
+
+    34% {
+        content: " Fre|";
+    }
+
+    35% {
+        content: " Fr|";
+    }
+
+    36% {
+        content: " F|";
+    }
+
+    37% {
+        content: " |";
+    }
+
+    38% {
+        content: " P|";
+    }
+
+    39% {
+        content: " Ph|";
+    }
+
+    40% {
+        content: " Pho|";
+    }
+
+    41% {
+        content: " Phot|";
+    }
+
+    42% {
+        content: " Photo|";
+    }
+
+    43% {
+        content: " Photog|";
+    }
+
+    44% {
+        content: " Photogr|";
+    }
+
+    45% {
+        content: " Photogra|";
+    }
+
+    46% {
+        content: " Photograp|";
+    }
+
+    47% {
+        content: " Photograph|";
+    }
+
+    48% {
+        content: " Photography|";
+    }
+
+    49% {
+        content: " Photograph|";
+    }
+
+    50% {
+        content: " Photograp|";
+    }
+
+    51% {
+        content: " Photogra|";
+    }
+
+    52% {
+        content: " Photogr|";
+    }
+
+    53% {
+        content: " Photog|";
+    }
+
+    54% {
+        content: " Photo|";
+    }
+
+    55% {
+        content: " Phot|";
+    }
+
+    56% {
+        content: " Pho|";
+    }
+
+    57% {
+        content: " Ph|";
+    }
+
+    58% {
+        content: " P|";
+    }
+
+    59% {
+        content: " D|";
+    }
+
+    61% {
+        content: " De|";
+    }
+
+    62% {
+        content: " Des|";
+    }
+
+    63% {
+        content: " Desi|";
+    }
+
+    64% {
+        content: " Desig|";
+    }
+
+    65% {
+        content: " Design|";
+    }
+
+    66% {
+        content: " Designe|";
+    }
+
+    67% {
+        content: " Designer|";
+    }
+
+    68% {
+        content: " Designe|";
+    }
+
+    69% {
+        content: " Design|";
+    }
+
+    70% {
+        content: " Desig|";
+    }
+
+    71% {
+        content: " Desi|";
+    }
+
+    72% {
+        content: " Des|";
+    }
+
+    73% {
+        content: " De|";
+    }
+
+    74% {
+        content: " D|";
+    }
+
+    75% {
+        content: " |";
+    }
+
+    76% {
+        content: " F|";
+    }
+
+    77% {
+        content: " Fr|";
+    }
+
+    78% {
+        content: " Fre|";
+    }
+
+    79% {
+        content: " Free|";
+    }
+
+    80% {
+        content: " Freel|";
+    }
+
+    81% {
+        content: " Freela|";
+    }
+
+    82% {
+        content: " Freelan|";
+    }
+
+    83% {
+        content: " Freelanc|";
+    }
+
+    84% {
+        content: " Freelance|";
+    }
+
+    85% {
+        content: " Freelancer|";
+    }
+
+    86% {
+        content: " Freelance|";
+    }
+
+    87% {
+        content: " Freelanc|";
+    }
+
+    88% {
+        content: " Freelan|";
+    }
+
+    89% {
+        content: " Freela|";
+    }
+
+    90% {
+        content: " Freel|";
+    }
+
+    91% {
+        content: " Free|";
+    }
+
+    92% {
+        content: " Fre|";
+    }
+
+    93% {
+        content: " Fr|";
+    }
+
+    94% {
+        content: " F|";
+    }
+
+    100% {
+        content: " |";
+    }
 }
 
 
@@ -509,6 +923,8 @@ section#services .card i {
     height: 8rem;
     position: relative;
     padding: 2.5rem;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
     transition: all .5s;
     border-radius: 50%;
 
@@ -535,25 +951,30 @@ section#services .card:hover i {
 }
 
 /* Counter Section */
-section#counter {}
 
 section#counter .layer {
     background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 section#counter .layer h1 {
     font-size: 4rem;
 }
 
-section#counter .counter .layer {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-}
-
 section#counter .counterIcon i {
     border-radius: 50%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 2rem;
     color: white;
@@ -571,11 +992,15 @@ section#portfolio .cardImg {
 
 
 section#portfolio .card img {
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
     transition: all 1s;
 
 }
 
 section#portfolio .card:hover img {
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
     transform: scale(1.3);
 }
 
@@ -592,7 +1017,12 @@ section#portfolio div.card-body {
     background-blend-mode: soft-light;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+}
+
+#testimonial .container div#testSlider button {
+    width: .75rem;
+    height: .75rem;
+    border-radius: 50%;
 }
 
 /* Blog Edits */
@@ -602,6 +1032,8 @@ section#blog .middleBtn {
     padding: .3125rem 2rem;
     top: 0;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     font-size: 0.8rem;
     font-weight: 500;
@@ -622,7 +1054,6 @@ section#blog span.authorName:hover {
     background-blend-mode: soft-light;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
 textarea {
@@ -642,8 +1073,17 @@ section#contact li a {
 }
 
 section#contact i {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
     border: 3px solid var(--bs-primary);
     padding: .5rem;
@@ -651,6 +1091,8 @@ section#contact i {
     margin: auto 1rem 0 0;
     border-radius: 50%;
     color: var(--bs-dark);
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
     transition: all 0.5s;
 }
 
