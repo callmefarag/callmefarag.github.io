@@ -535,9 +535,7 @@ section#services .card:hover i {
 }
 
 /* Counter Section */
-section#counter {
-    height: 50vh;
-}
+section#counter {}
 
 section#counter .layer {
     background-color: rgba(0, 0, 0, 0.5);
@@ -545,6 +543,11 @@ section#counter .layer {
 
 section#counter .layer h1 {
     font-size: 4rem;
+}
+
+section#counter .counter .layer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 section#counter .counterIcon i {
