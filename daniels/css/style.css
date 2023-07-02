@@ -1,0 +1,514 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* -------------------------------------------- 
+#  Shared Styling
+-------------------------------------------- */
+.sectionSpacing {
+    padding: calc(4rem + 3.5rem) 0;
+    /* 3.5rem is the navbar height, The padding added as calc to make it easier to change the first value if I want to */
+}
+
+.sectionHead {
+    margin-bottom: 2rem;
+}
+
+.sectionHead h2 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+
+}
+
+.sectionHead h2::after {
+    content: "";
+    width: 100%;
+    height: 30px;
+    background-image: url(images/dots.png);
+    background-repeat: repeat;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    z-index: -1;
+}
+
+
+
+
+
+/* -------------------------------------------- 
+#  Nav Styling
+-------------------------------------------- */
+nav li {
+    margin: auto 1rem;
+}
+
+nav a.nav-link {
+    position: relative;
+}
+
+nav a.nav-link::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    left: 8px;
+    bottom: 5px;
+    height: 2px;
+    width: calc(100% - 16px);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all 0.5s;
+}
+
+/* IMPORTANT NOTE:
+I'm hijacking the bootstrap scroll-spy feature to use it as a selector to make the navbar transparent while in the home section then back again to white bg in other sections */
+
+nav.navbar:has(a[href="#home"].nav-link.active) {
+    background-color: transparent !important;
+    margin: 20px 0 30px 0px !important;
+}
+
+nav.navbar:has(a[href="#home"].nav-link.active) button {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: white;
+}
+
+nav.navbar:has(a[href="#home"].nav-link.active) .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+@media screen and (max-width: 991px) {
+    nav ul a {
+        color: black !important;
+    }
+
+    nav.navbar:has(a[href="#home"].nav-link.active) ul {
+        background-color: white;
+    }
+}
+
+nav.navbar:has(a[href="#home"].nav-link.active) a {
+    color: white;
+}
+
+nav.navbar:has(a[href="#home"].nav-link.active) a::after {
+    background-color: white;
+}
+
+/* End of hijacking the scroll-spy */
+
+nav a.nav-link:is(.active)::after {
+    transform: scaleX(1);
+}
+
+@media screen and (max-width: 991px) {
+    nav .nav-link {
+        display: inline-block;
+    }
+
+    nav a.nav-link:is(.active)::after {
+        content: "";
+        position: absolute;
+        background-color: black;
+        left: 0;
+        bottom: 5px;
+        height: 2px;
+        width: 100%;
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+}
+
+
+
+
+
+/* -------------------------------------------- 
+#  Home Styling
+-------------------------------------------- */
+section#home {
+    background-image: url(images/bg.jpg);
+    background-color: rgba(0, 0, 0, 0.6);
+    background-position: 0px 0px;
+    background-size: cover;
+    background-blend-mode: soft-light;
+    transform-origin: center;
+
+}
+
+section#home h1 {
+    font-size: 4rem;
+}
+
+ul.socialMedia li {
+    padding: 0.4rem;
+}
+
+ul.socialMedia li a i {
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+/* Animation */
+#home .homeContent h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    margin: auto;
+}
+
+#home .homeContent h3::after {
+    content: "|";
+    position: relative;
+    font-weight: lighter;
+    animation-name: crown;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes crown {
+    0% {
+        margin-left: 13rem;
+    }
+
+    50% {
+        margin-left: 0;
+    }
+
+    100% {
+        margin-left: 13rem;
+    }
+}
+
+
+#home .animatedText {
+    position: relative;
+    max-width: 3rem;
+}
+
+#home .animatedText::after {
+    content: "";
+    display: inline-block;
+    max-width: 0;
+    transition: all 1s;
+    animation-name: text;
+    animation-duration: 9s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+
+}
+
+
+@keyframes text {
+
+
+    0% {
+        content: "Larry Daniels";
+    }
+
+    33% {
+        content: "UI Designer..";
+
+    }
+
+    66% {
+        content: "Developer..";
+    }
+
+    100% {
+        content: "Larry Daniels";
+    }
+}
+
+
+/* -------------------------------------------- 
+#  About Styling
+-------------------------------------------- */
+section#about .aboutImage {
+    position: relative;
+}
+
+section#about .aboutImage::after {
+    content: "";
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    left: -35px;
+    bottom: -30px;
+    background-image: url(images/dots.png);
+    background-repeat: repeat;
+    z-index: -1;
+}
+
+/* Animation */
+div.skills div.progress-bar {
+    animation-name: skill;
+    animation-duration: 0.7s;
+    transform-origin: left;
+    animation-timing-function: linear;
+}
+
+@keyframes skill {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* -------------------------------------------- 
+#  Services Styling
+-------------------------------------------- */
+section#services .card-body i {
+    width: 4.375rem;
+    height: 4.375rem;
+    background-color: #f4f4f4;
+    transition: all 0.5s;
+}
+
+section#services .card-body:hover i {
+    color: white;
+    background-color: black;
+}
+
+/* -------------------------------------------- 
+#  Portfolio Styling
+-------------------------------------------- */
+.projectImage {
+    position: relative;
+    z-index: 1;
+}
+
+.projectImage:hover .projectImageOverlay {
+    transform: translate(0);
+    opacity: 1;
+}
+
+.projectImage:hover .projectImageOverlay h6 {
+    transform: translateY(0);
+}
+
+.projectImageOverlay h6 {
+    position: relative;
+    transform: translateY(-15px);
+    transition: all 0.5s;
+}
+
+.projectImageOverlay {
+    background-color: white;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    z-index: 2;
+    transition: all .5s;
+    transform: translateY(10px);
+    opacity: 0;
+
+}
+
+.projectImageOverlay .icon a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: .8rem;
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: black;
+    text-decoration: none;
+    border: 1px solid black;
+}
+
+.projectImageOverlay .icon:hover a {
+    background-color: white;
+    color: black;
+}
+
+.nav-tabs,
+.nav-tabs .nav-link {
+    border: none;
+    color: black;
+    font-weight: bold;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    border: none;
+}
+
+#works .nav-tabs .nav-link {
+    position: relative;
+    padding: 8px 10px !important;
+}
+
+#works .nav-tabs .nav-link::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    left: 10px;
+    bottom: 5px;
+    height: 2px;
+    width: calc(100% - 20px);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all 0.5s;
+    z-index: 5;
+}
+
+#works .nav-tabs .nav-link.active::after {
+    transform: scaleX(1);
+
+}
+
+/* -------------------------------------------- 
+#  Testimonials Styling
+-------------------------------------------- */
+.reviewerPhoto {
+    width: 5rem;
+    height: 5rem;
+}
+
+.carousel-indicators button[data-bs-target="#carouselExampleIndicators"] {
+    width: .6rem;
+    height: .6rem;
+    background-color: gray;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+/* -------------------------------------------- 
+#  Our Team Styling
+-------------------------------------------- */
+.teamImage {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+}
+
+.teamImage img {
+    transition: all .5s;
+}
+
+#team .card:hover .teamImage img {
+    transform: scale(1.2);
+}
+
+#team .card:hover .overlayIcons {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1, 1);
+
+}
+
+#team .overlayIcons {
+    content: "";
+    position: absolute;
+    background-color: white;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.5s;
+    transform: rotateY(180deg) scale(0.5, 0.5);
+}
+
+#team .overlayIcons .icon {
+    margin: 0.5rem;
+}
+
+#team .overlayIcons .icon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    padding: 1.5rem;
+    border: 1px solid black;
+    transition: all 0.5s;
+}
+
+#team .overlayIcons .icon:hover a {
+    color: black;
+    background-color: white;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #team .overlayIcons .icon a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 1rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: black;
+        color: white;
+        padding: 1rem;
+        border: 1px solid black;
+        transition: all 0.5s;
+    }
+}
+
+/* -------------------------------------------- 
+#  Contact Us Styling
+-------------------------------------------- */
+.form-control:focus {
+    border: none;
+    box-shadow: none;
+    height: initial;
+}
+
+.form-control {
+    transition: none;
+}
+
+#contact i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 2rem;
+    border-radius: 50%;
+    margin: auto;
+    background-color: var(--bs-secondary-bg);
+    transition: all .5s;
+}
+
+#contact i:hover {
+    color: var(--bs-secondary-bg);
+    background-color: black;
+}
+
+@media screen and (min-width: 768px) {
+    #contact i {
+        font-size: 1.75rem !important;
+    }
+}
