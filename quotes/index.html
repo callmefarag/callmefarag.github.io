@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Your Today's Quote | by Muhammed Farag</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="container pt-3 px-3">
+      <div class="row flex-column px-sm-1 p-md-3">
+        <header
+          class="d-flex flex-column flex-md-row align-items-center justify-content-lg-between mb-md-3"
+        >
+          <h1 class="d-inline-block head py-3 mb-sm-3 mb-md-0 px-2">
+            Today's Quotes
+          </h1>
+          <!-- Control the quotes by a bottom Nav -->
+          <nav>
+            <div class="d-flex justify-content-center align-items-center">
+              <a
+                name="next"
+                id="next"
+                class="d-inline-block p-2"
+                href="#"
+                role="button"
+                onclick="getRandom()"
+                >Another Quote <i class="fa fa-chevron-circle-right"></i
+              ></a>
+              <div class="themeChanger ms-4">
+                <label class="switch">
+                  <input
+                    class="toggle"
+                    type="checkbox"
+                    onchange="themeChange()"
+                    id="toggle"
+                  />
+                  <span class="slider"></span>
+                  <span class="card-side"></span>
+                </label>
+              </div>
+            </div>
+          </nav>
+          <!-- End of Navigation -->
+        </header>
+        <!-- Place to put the quotes in -->
+        <div
+          class="quote d-flex flex-column justify-content-center align-items-center w-100"
+          id="quote"
+        >
+          <p class="quoteText p-5 mx-auto">
+            I've learned that people will forget what you said, people will
+            forget what you did, but people will never forget how you made them
+            feel.
+            <span class="d-block text-end">Maya Angelou</span>
+          </p>
+        </div>
+      </div>
+    </main>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

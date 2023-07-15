@@ -1,0 +1,155 @@
+:root {
+    --text-main: #606c38ff;
+    --main-bg: #fefae0ff;
+    --shadow-color: #283618ff;
+    --alternate-shadow-color: rgba(188, 107, 37, 0.309);
+    --shadow: 5px 5px 0px 0px #606c38ff;
+}
+
+* {
+    font-family: 'Kalam', cursive;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bolder;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+
+body {
+    background-color: var(--main-bg);
+    color: var(--text-main);
+    height: 100vh;
+    overflow: hidden;
+    /* Made for a styling reason not as a problem fix */
+}
+
+header {
+    max-height: 30vh;
+}
+
+.head {
+    box-shadow: var(--shadow);
+    border: 2px solid var(--shadow-color);
+    border-radius: 10px;
+}
+
+.quote::before {
+    content: "\f10d";
+    font: var(--fa-font-solid);
+    font-size: 10rem;
+    color: var(--alternate-shadow-color);
+    position: absolute;
+    left: 10px;
+    top: 0;
+    z-index: -1;
+}
+
+.quote {
+    position: relative;
+    height: 70vh;
+
+}
+
+.quote::after {
+    content: "\f10e";
+    font: var(--fa-font-solid);
+    font-size: 10rem;
+    color: var(--alternate-shadow-color);
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    z-index: -1;
+
+}
+
+/* Adjusting Buttons */
+#next,
+#previous {
+    border-radius: 15px;
+    border: 3px solid var(--shadow-color);
+    border-radius: 5rem;
+}
+
+/* Bottom Navigation */
+a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 1.25rem;
+}
+
+a i {
+    font-size: 1.25rem;
+}
+
+/* Dark Mode Toggler */
+.switch {
+    --input-focus: #606c38ff;
+    --font-color: #323232;
+    --font-color-sub: #666;
+    --bg-color: #bc6c25ff;
+    --bg-color-alt: #666;
+    --main-color: #323232;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 50px;
+    height: 20px;
+}
+
+.toggle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-colorcolor);
+    transition: 0.3s;
+}
+
+.slider:before {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    left: -2px;
+    bottom: 2px;
+    background-color: var(--bg-color);
+    box-shadow: 0 3px 0 var(--main-color);
+    transition: 0.3s;
+}
+
+.toggle:checked+.slider {
+    background-color: var(--input-focus);
+}
+
+.toggle:checked+.slider:before {
+    transform: translateX(30px);
+}
