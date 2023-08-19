@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track My Binge | Track your series watch-list</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="shadow-lg">
+      <div
+        class="container-fluid p-3 d-flex justify-content-between align-items-center flex-column flex-md-row"
+      >
+        <div
+          class="header__logo d-flex justify-content-center justify-content-md-start me-4 me-md-0 align-items-center"
+        >
+          <div data-text="track my binge">
+            <div class="header__logo--tittle">
+              <span class="actual-text">&nbsp;track my binge&nbsp;</span>
+              <span class="hover-text" aria-hidden="true"
+                >&nbsp;track my binge&nbsp;</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="header__buttons mt-3 my-md-0">
+          <div class="header__buttons--add">
+            <button
+              id="addBtn"
+              data-bs-toggle="modal"
+              data-bs-target="#userDataAdd"
+            >
+              Add New Series
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Modal - Adding a new movie or series to the client's list -->
+    <div
+      class="modal fade"
+      id="userDataAdd"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addNew"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered"
+        id="modalContainer"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title text-white" id="addNew">
+              Add New Movie or Series
+            </h5>
+            <button
+              type="button"
+              class="btn-close bg-danger-subtle"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body border-0">
+            <!-- Add content here -->
+            <!-- Select between movies or series -->
+            <div class="modal__form--head pb-2">
+              <h6 class="text-center">Choose The New Entry's Type</h6>
+            </div>
+            <div class="modal__form--type d-flex justify-content-center">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="addMovie">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="addMovie"
+                    value="movie"
+                    disabled
+                  />
+                  Movie</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="addSeries">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="addSeries"
+                    value="series"
+                    checked
+                  />
+                  Series</label
+                >
+              </div>
+            </div>
+            <!--  -->
+
+            <!-- Entry details -->
+            <div class="modal__form--entry container my-3">
+              <div class="text-center">
+                <p class="fs-3 text-white">
+                  I'm watching
+                  <span class="void">
+                    <input
+                      type="text"
+                      autocomplete="off"
+                      id="entryName"
+                      placeholder="ex. Game of Thrones"
+                      onmousedown="this.value = ''"
+                      class="text-start" /></span
+                  ><br />Now in Season
+                  <span class="void">
+                    <input
+                      type="text"
+                      id="entrySeason"
+                      class="text-center"
+                      placeholder="ex. 1"
+                      onmousedown="this.value = ''"
+                  /></span>
+                  , Episode
+                  <span class="void">
+                    <input
+                      type="text"
+                      id="entryEpisode"
+                      class="text-center"
+                      placeholder="ex"
+                      onmousedown="this.value = ''"
+                  /></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="modal__action--close"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              id="Modal_SaveEntry"
+              class="modal__action--save"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <dialog>
+      <span id="entryConfirmation"></span><br />
+      <button
+        type="button"
+        id="modal_closeDialog"
+        class="modal__action--close"
+        data-bs-dismiss="modal"
+      >
+        Close
+      </button>
+    </dialog>
+    <!--  -->
+
+    <!-- Showing the data that user submitted -->
+    <section>
+      <div class="container my-3">
+        <table class="table table-responsive section__table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Show Name</th>
+              <th scope="col">Season</th>
+              <th scope="col">Episode</th>
+              <th scope="colgroup">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="displayArea"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <span id="editsForm" style="display: none">
+      <div class="container border-4 shadow-lg border-white">
+        <div class="bg-dark text-white p-4 rounded-5">
+          <!-- From Here -->
+          <div class="mb-3">
+            <label for="editName-new" class="form-label">Show Name</label>
+            <div class="input-group">
+              <span
+                class="input-group-text bg-dark text-white-50"
+                id="editName-old"
+                >Was
+              </span>
+              <input
+                type="text"
+                class="form-control bg-transparent border-success-subtle shadow-lg text-white"
+                id="editName-new"
+                aria-describedby="basic-addon3 basic-addon4"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="editSeason-new" class="form-label"
+                  >Current Season</label
+                >
+                <div class="input-group">
+                  <span
+                    class="input-group-text bg-dark text-white-50"
+                    id="editSeason-old"
+                    >Was
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control bg-transparent border-success-subtle shadow-lg text-white"
+                    id="editSeason-new"
+                    aria-describedby="basic-addon3 basic-addon4"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="editEp-new" class="form-label"
+                  >Current Episode</label
+                >
+                <div class="input-group">
+                  <span
+                    class="input-group-text bg-dark text-white-50"
+                    id="editEp-old"
+                    >Was
+                  </span>
+                  <input
+                    type="number"
+                    class="form-control bg-transparent border-success-subtle shadow-lg text-white"
+                    id="editEp-new"
+                    aria-describedby="basic-addon3 basic-addon4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-grid gap-2">
+            <button
+              type="button"
+              name="saveedit"
+              id="saveEdits"
+              class="btn btn-success"
+            >
+              Save
+            </button>
+          </div>
+          <!-- To Here -->
+        </div>
+      </div>
+    </span>
+    <!-- JS LINKS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

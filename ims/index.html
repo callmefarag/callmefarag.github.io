@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Inventory Management</title>
+  </head>
+  <body class="bg-dark text-light">
+    <div id="dialog" class="d-flex justify-content-center align-items-center">
+      <div class="card">
+        <div class="card2 d-flex align-items-center justify-content-between">
+          <div class="container text-light p-3">
+            <h3 class="mb-3">Adding Products</h3>
+            <p class="text-light">
+              To add a product please don't left any field without input
+            </p>
+            <h3 class="mb-3">Updating Products</h3>
+            <p class="text-light">
+              To update a product click on the yellow button "Update" in the
+              product row, Then edit, Then press the Update Product button in
+              the product form
+            </p>
+            <h3 class="mb-3">Deleting Products</h3>
+            <p class="text-light">
+              To delete a product click on the red outlined button named
+              "Delete" in the product row
+            </p>
+            <i
+              class="fa-solid fa-close position-absolute"
+              id="closeIcon"
+              onclick="closeHelp()"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Heading section -->
+    <header class="head text-center d-flex justify-content-center my-5">
+      <h1 class="d-inline-flex py-3 bor px-4">Inventory Management System</h1>
+    </header>
+    <main
+      class="container d-flex flex-column justify-content-center align-items-center"
+    >
+      <!-- Main Form Section -->
+      <section class="container position-relative py-5 overflow-hidden">
+        <!-- Adding rules of how the visitor enter correct data -->
+        <span>
+          <i
+            class="fa-solid fa-info-circle fs-3 position-absolute"
+            role="button"
+            onclick="showHelp()"
+          ></i>
+        </span>
+        <!-- Add a visually hidden span as a product ID -->
+        <span class="visually-hidden" id="productID"></span>
+        <!-- Product Name -->
+        <div class="mb-3">
+          <label for="productName" class="form-label fs-4 ps-0"
+            >Product Name</label
+          >
+          <!-- Will use this helper to show notations on the inputted text by js -->
+          <small id="productNameHelp" class="text-success ms-3"></small>
+
+          <input
+            type="text"
+            name="productName"
+            id="productName"
+            class="form-control form-control-lg text-light bg-transparent"
+            placeholder="Ex. iPhone 14 Pro Max, Samsung Smart TV, ..."
+            aria-describedby="productNameHelp"
+          />
+        </div>
+        <!-- Product Price & Category -->
+        <div class="row mb-3">
+          <div class="col-md-6 mb-sm-3 mb-md-0">
+            <label for="productPrice" class="form-label fs-4 ps-0"
+              >Product Price</label
+            >
+            <!-- Will use this helper to show notations on the inputted text by js -->
+            <small id="productNameHelp" class="text-success ms-3"></small>
+
+            <input
+              type="number"
+              name="productPrice"
+              id="productPrice"
+              class="form-control form-control-lg text-light bg-transparent"
+              placeholder="Ex. 5000, 7400, ..."
+              aria-describedby="productPriceHelp"
+            />
+            <!-- Will use this helper to show notations on the inputted text by js -->
+            <small id="productPriceHelp" class="text-success"></small>
+          </div>
+
+          <div class="col-md-6">
+            <label for="productCategory" class="form-label fs-4 ps-0"
+              >Product Category</label
+            >
+            <!-- Will use this helper to show notations on the inputted text by js -->
+            <small id="productNameHelp" class="text-success ms-3"></small>
+
+            <input
+              type="text"
+              name="productCategory"
+              id="productCategory"
+              class="form-control form-control-lg text-light bg-transparent"
+              placeholder="Ex. Mobile Phone, TV, Dish Washer, ..."
+              aria-describedby="productCategoryHelp"
+            />
+            <!-- Will use this helper to show notations on the inputted text by js -->
+            <small id="productCategoryHelp" class="text-success"></small>
+          </div>
+        </div>
+        <!-- Product Description -->
+        <div class="mb-3">
+          <label for="productDescription" class="form-label fs-4 ps-0"
+            >Product Description</label
+          >
+          <!-- Will use this helper to show notations on the inputted text by js -->
+          <small id="productNameHelp" class="text-success ms-3"></small>
+
+          <textarea
+            type="text"
+            name="productDescription"
+            id="productDescription"
+            value=""
+            class="form-control form-control-lg text-light bg-transparent"
+            placeholder="Ex. Information about the product, Product sizes, ..."
+            aria-describedby="productDescriptionHelp"
+          ></textarea>
+          <!-- Will use this helper to show notations on the inputted text by js -->
+          <small id="productDescriptionHelp" class="text-success"></small>
+        </div>
+        <!-- Action Buttons -->
+        <div class="mb-3 d-flex justify-content-between align-items-stretch">
+          <!-- Add Button -->
+          <button
+            type="button"
+            id="addBtn"
+            onclick="addingProduct()"
+            class="btn btn-lg mt-3 btn-success px-4 py-2"
+          >
+            Add Product
+          </button>
+          <!-- Update Button -->
+          <button
+            type="button"
+            id="updateBtn"
+            onclick="updateProduct()"
+            class="btn btn-lg mt-3 btn-outline-warning d-none"
+          >
+            Update Product
+          </button>
+          <!-- Clear Button -->
+          <button
+            type="button"
+            id="clearBtn"
+            onclick="clearForm()"
+            class="btn btn-lg mt-4 btn-outline-danger ms-3 px-4 py-2"
+            data-bs-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+          >
+            Clear
+          </button>
+        </div>
+
+        <div
+          id="notification"
+          class="notification container position-absolute w-100"
+        >
+          <h3 class="animate-charcter">EKOSH</h3>
+        </div>
+      </section>
+
+      <!-- Data Display Section -->
+
+      <section class="container">
+        <div class="displayLocation mt-5 d-flex justify-content-center">
+          <table class="table w-100 text-center table-dark table-hover">
+            <thead>
+              <tr>
+                <th colspan="7" class="pb-5">
+                  <input
+                    type="text"
+                    name="searchbar"
+                    id="searchbar"
+                    class="form-control form-control-lg text-light bg-transparent w-100"
+                    placeholder="Type what are you looking for?"
+                    oninput="search()"
+                  />
+                  <br />
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Product Category</th>
+                <th scope="col">Product Description</th>
+                <th scope="col">Edit or Delete</th>
+              </tr>
+            </thead>
+            <tbody id="displayLocation"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- BS5 Script -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

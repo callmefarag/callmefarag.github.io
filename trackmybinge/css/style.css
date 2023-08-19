@@ -1,0 +1,274 @@
+:root {
+    --heading-font: 'Tektur', cursive;
+    --main-font: 'Zilla Slab', serif;
+    --background-main: #212121;
+    --secondary-color: #37FF8B;
+    --gradient: radial-gradient(circle, #00bb95, #00988a, #007676);
+    --contrasting-bg: #007676;
+    --text-subtle: rgba(255, 255, 255, 0.7);
+}
+
+/* Header */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--background-main);
+}
+
+.header__logo--tittle {
+    --border-right: 6px;
+    --text-stroke-color: rgba(255, 255, 255, 0.6);
+    --secondary-color: #37FF8B;
+    --fs-size: 3rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+@media screen and (max-width: 768px) {
+    .header__logo--tittle span {
+        --fs-size: 2rem;
+        font-size: var(--fs-size);
+    }
+
+    .header__logo--tittle {
+        line-height: 2rem;
+    }
+
+    .header__logo--tittle::after {
+        line-height: 2.75rem;
+
+    }
+}
+
+.hover-text {
+    position: absolute;
+    content: attr(data-text);
+    color: var(--secondary-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--secondary-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--secondary-color);
+}
+
+.header__logo--tittle:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--secondary-color))
+}
+
+.header__logo--tittle:hover::after {
+    margin-left: 10px;
+}
+
+.header__logo--tittle {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.header__logo--tittle:hover i.header__logo--icon {
+    color: white;
+}
+
+.header__logo--tittle::after {
+    content: '\f074';
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.75rem;
+    position: absolute;
+    color: var(--secondary-color);
+    -webkit-text-stroke: 0px;
+    transition: 0.7s all;
+}
+
+/* Add New Series Button */
+button#addBtn {
+    font-size: 18px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    text-transform: capitalize;
+    cursor: pointer;
+    will-change: box-shadow, transform;
+    background: radial-gradient(100% 100% at 100% 0%, #37FF8B 0%, #007676 100%);
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+    padding: 0 2em;
+    border-radius: 0.3em;
+    color: #fff;
+    height: 2.6em;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+button#addBtn:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #007676;
+    transform: translateY(-0.1em);
+}
+
+button#addBtn:active {
+    box-shadow: inset 0px 0.1em 0.6em #007676;
+    transform: translateY(0em);
+}
+
+/* Modal changes */
+.modal-content {
+    background-image: var(--gradient);
+}
+
+.modal__form--type {
+    background-color: var(--contrasting-bg);
+    border-radius: 3rem;
+    margin: auto;
+    width: fit-content;
+    overflow: hidden;
+
+}
+
+.modal__form--type label {
+    padding: 1rem 3rem;
+    border-radius: 3rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.5s all;
+    font-size: large;
+    font-weight: 600;
+}
+
+.modal__form--type .form-check {
+    padding: 0;
+    /* to ensure that the pill take the size*/
+}
+
+.form-check-inline {
+    margin: 5px;
+}
+
+.modal__form--type input {
+    display: none;
+}
+
+.modal__form--type label:has(input:checked) {
+    background-color: #00bb95;
+    color: white;
+    box-shadow: 20px 0px 100px 0px rgba(0, 0, 0, 0.5);
+}
+
+.modal__form--head h6 {
+    color: var(--text-subtle);
+}
+
+/* dialog with the user to determine what is the entry */
+dialog {
+    gap: 1rem;
+    background-color: var(--background-main);
+    border: 0;
+    border-radius: 1rem;
+    color: #fff;
+    padding: 2rem;
+    transition: all 1s;
+}
+
+.void {
+    width: fit-content;
+    display: inline-block;
+    border-bottom: 2px solid var(--secondary-color);
+    padding: 0;
+    margin: 0;
+}
+
+.void input::placeholder {
+    color: var(--contrasting-bg);
+}
+
+.void input {
+    display: block;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    color: var(--secondary-color);
+    padding: 0;
+    overflow: hidden;
+}
+
+input#entryName {
+    min-width: 1ch;
+    width: max-content;
+}
+
+input#entrySeason,
+input#entryEpisode {
+    min-width: 1ch;
+    max-width: 2ch;
+
+
+}
+
+.modal__action--save {
+    background-color: var(--secondary-color);
+    padding: 0.3rem 2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 3rem;
+    border: 0;
+    box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+
+
+}
+
+.modal__action--close {
+    background-color: transparent;
+    padding: 0.3rem 2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 3rem;
+    border: var(--secondary-color) 2px solid;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+
+}
+
+/* Showcase table */
+table,
+thead,
+th,
+td,
+tr,
+tbody {
+    background-color: transparent !important;
+}
+
+.section__table td {
+    color: white;
+}
+
+.section__table th {
+    color: var(--secondary-color);
+}
+
+input#edit__show--name {
+    background-color: transparent;
+}
+
+label[for="#edit__show--name"] {
+    background-color: transparent;
+}
+
+#editsForm {
+    position: fixed;
+    background-color: transparent;
+
+}
